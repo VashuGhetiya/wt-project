@@ -1,0 +1,519 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#fff;
+  --muted:#666;
+  --accent:#0b5cff;
+  --text:#111;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1100px;margin:1.2rem auto;padding:0 1rem}
+.site-header{
+  display:flex; justify-content: space-between;align-items:center;padding:.6rem 1rem;background:linear-gradient(90deg,rgba(255,255,255,0.6),rgba(255,255,255,0.3));
+  position:sticky;top:0;backdrop-filter: blur(6px);z-index:10;
+}
+.logo{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.1rem}
+.main-nav{margin-left:auto;display:flex;gap:.5rem;align-items:center}
+.main-nav .nav-link{color:inherit;text-decoration:none;padding:.5rem .6rem;border-radius:6px}
+.main-nav .nav-link.active{background:var(--accent);color:#fff}
+.main-nav .nav-link.admin{border:1px solid #ddd;padding:.4rem .6rem;border-radius:6px}
+.icon-btn{border:0;background:transparent;cursor:pointer;font-size:1.1rem}
+
+/* Hero */
+.hero-full{height:75vh;background:url('https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/himalayan/explore/gallery/01.jpg') center/cover no-repeat;display:flex;align-items:center}
+.hero-overlay{width:100%;height:100%;background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.2));display:flex;align-items:center}
+.hero-inner{max-width:900px;margin:0 auto;color:#fff;padding:2rem;text-align:center}
+.hero-inner h1{font-size:2.5rem;margin:0 0 .5rem;text-shadow:0 4px 18px rgba(0,0,0,0.6)}
+.hero-inner p{margin:0 0 1rem;color:rgba(255,255,255,0.9)}
+.hero-ctas .btn{margin:0 .4rem}
+
+/* layout cards & lists */
+.features-home{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.4rem}
+.feature{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(12,20,35,0.06)}
+.cardlist{display:flex;gap:1rem;flex-wrap:wrap}
+.card{background:var(--card);border-radius:10px;padding:0;overflow:hidden;width:280px;box-shadow:0 6px 18px rgba(12,20,35,0.06)}
+.cardlist img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  background-color: #111;
+  display: block;
+}
+
+.card h4{margin:.6rem}
+.muted{color:var(--muted)}
+
+.search-filter{display:flex;gap:.6rem;align-items:center;margin:1rem 0;flex-wrap:wrap}
+.search-filter input, .search-filter select{padding:.5rem .7rem;border-radius:8px;border:1px solid #ddd;background:#fff}
+.search-filter .spacer{flex:1}
+
+/* models grid */
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.model-card{display:flex;flex-direction:column;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(12,20,35,0.06)}
+.model-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;        /* ensures the image fills neatly */
+  border-radius: 8px;       /* smooth corners */
+  background: #000;         /* fallback for transparent areas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.model-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.model-card .card-body{padding:1rem}
+.card-actions{display:flex;gap:.5rem;margin-top:1rem}
+.btn{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;border:0;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;border:1px solid #ddd;color:inherit}
+
+/* modals */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;padding:1rem}
+.modal.hidden{display:none}
+.modal-content{background:var(--card);padding:1rem;border-radius:12px;max-width:900px;width:100%}
+.modal-close{float:right;border:0;background:transparent;font-size:1.4rem;cursor:pointer}
+
+/* compare area */
+.compare-area{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.compare-card{background:var(--bg);padding:.6rem;border-radius:8px}
+
+/* gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer;display:block}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;padding:1rem}
+.lightbox.hidden{display:none}
+.lightbox-inner{max-width:1000px;width:100%;text-align:center}
+.lightbox-inner img{max-width:100%;max-height:70vh;border-radius:8px}
+
+/* forms & admin */
+.form-card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(12,20,35,0.06)}
+.form-inline{display:flex;gap:.5rem;flex-wrap:wrap}
+.form-inline input{padding:.5rem;border-radius:8px;border:1px solid #ddd;background:#fff}
+
+/* small screens */
+@media (max-width:900px){
+  .hero-inner h1{font-size:1.8rem}
+  .model-card img{height:160px}
+}
+
+/* dark theme toggle */
+body.dark{
+  --bg:#07101a;--card:#08121a;--muted:#9aa6b2;--accent:#7aa2ff;--text:#eaf2ff;
+  background:var(--bg); color:var(--text);
+}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh}
+.narrow{max-width:720px;margin:1.2rem auto;padding:0 1rem}
+.site-footer{margin:2rem 0;color:var(--muted);text-align:center}
+
+
+.hero-full {
+  height: 75vh;
+  background: url('bgw.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+
+/* ===== CONTACT PAGE ===== */
+.contact-hero {
+  background: url('contact.jpg') center/cover no-repeat;
+}
+
+.contact-section {
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.contact-info h2, .contact-form h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  color: var(--text);
+}
+
+.contact-icons img {
+  width: 30px;
+  margin-right: 10px;
+  transition: transform 0.2s ease;
+}
+
+.contact-icons img:hover {
+  transform: scale(1.1);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.contact-form .btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background: #0042e0;
+}
+
+.contact-map {
+  margin-top: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+/* --- Consistent Navbar Layout Across All Pages --- */
+.site-header {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;   /* keeps logo left, nav right */
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.site-header * {
+  box-sizing: border-box;
+}
+
+/* Prevent page-specific sections from pushing header inward */
+.hero-full,
+.contact-hero,
+.container,
+.contact-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* === GALLERY SECTION === */
+.container h2 {
+  text-align: center;
+  margin-top: 2rem;
+  color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  width: 90%;
+}
+
+.gallery-grid div {
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 25px rgba(255,255,255,0.15);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.gallery-grid div:hover img {
+  transform: scale(1.1);
+}
+
+/* === LIGHTBOX === */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.lightbox-inner {
+  position: relative;
+  text-align: center;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 75vh;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.3);
+}
+
+#lbCaption {
+  color: #ccc;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+#lbClose {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  background: none;
+  color: #fff;
+  font-size: 2.2rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#lbClose:hover {
+  color: #ff4d4d;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.7rem 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+/* ===== BIKE CARE PAGE ===== */
+.care-hero {
+  background: url('care-bg.jpg') center/cover no-repeat;
+}
+
+.care-container {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.care-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.care-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.care-card img {
+  width: 80px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.care-card:hover img {
+  transform: scale(1.1);
+}
+
+.care-card h3 {
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.care-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+/* ===== BIKE CARE PAGE (Material Icons version) ===== */
+.care-hero {
+  background: url('maintanence.jpg') center/cover no-repeat;
+}
+
+.care-container {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.care-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 2rem 1.2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.care-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.care-card .icon {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.care-card h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.care-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+  font-size: 48px;      /* adjust as needed */
+  color: #0b5cff;       /* matches your site accent color */
+  display: block;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+/* === ABOUT US SECTION === */
+.about-container {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.about-container h2 {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-container .center-text {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.about-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(12,20,35,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(12,20,35,0.15);
+}
+
+.about-card span.material-symbols-outlined {
+  font-size: 48px;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.about-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.about-card p {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

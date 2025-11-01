@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | BikeHub</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- Admin Layout --- */
+    .admin-wrapper {
+      display: flex;
+      min-height: 100vh;
+      background: var(--bg);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: #0b5cff;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .sidebar h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .sidebar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.3rem;
+      transition: background 0.3s ease;
+      display: block;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .logout-btn {
+      margin-top: auto;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #fff;
+      padding: 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Main Area */
+    .admin-main {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    .admin-main h1 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* Cards */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .stat-card h2 {
+      margin: 0.3rem 0;
+      color: var(--accent);
+    }
+
+    /* Tables */
+    .admin-card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.6rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Hide other tabs */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>BikeHub Admin</h2>
+      <a href="#" class="active" id="tabDashboard">🏠 Dashboard</a>
+      <a href="#" id="tabBookings">📅 Manage Bookings</a>
+      <a href="#" id="tabModels">🏍 Manage Models</a>
+      <a href="#" id="tabMessages">📨 Contact Messages</a>
+      <button class="logout-btn" onclick="window.location.href='admin-login.html'">🚪 Logout</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Dashboard -->
+      <section id="dashboardSection" class="admin-card">
+        <h1>Dashboard Overview</h1>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <h2 id="totalBookings">0</h2>
+            <p>Total Bookings</p>
+          </div>
+          <div class="stat-card">
+            <h2 id="totalModels">4</h2>
+            <p>Total Bike Models</p>
+          </div>
+          <div class="stat-card">
+            <h2 id="totalMessages">0</h2>
+            <p>Contact Messages</p>
+          </div>
+        </div>
+        <p>Welcome, Admin! Manage all BikeHub activities — bookings, contact messages, and models here.</p>
+      </section>
+
+      <!-- Bookings -->
+      <section id="bookingsSection" class="admin-card hidden">
+        <h2>Manage Bookings</h2>
+        <table id="bookingsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Bike</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Date</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Models -->
+      <section id="modelsSection" class="admin-card hidden">
+        <h2>Manage Bike Models</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Bike Name</th>
+              <th>Engine (cc)</th>
+              <th>Mileage</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Classic 350</td><td>349</td><td>35 km/l</td><td>₹1,94,000</td></tr>
+            <tr><td>2</td><td>Himalayan</td><td>411</td><td>30 km/l</td><td>₹2,15,000</td></tr>
+            <tr><td>3</td><td>Meteor 350</td><td>349</td><td>37 km/l</td><td>₹1,90,000</td></tr>
+            <tr><td>4</td><td>Interceptor 650</td><td>648</td><td>25 km/l</td><td>₹3,03,000</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Messages -->
+      <section id="messagesSection" class="admin-card hidden">
+        <h2>Contact Messages</h2>
+        <table id="messagesTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody><tr><td colspan="5">No messages yet.</td></tr></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Sidebar switching
+    const tabs = {
+      tabDashboard: "dashboardSection",
+      tabBookings: "bookingsSection",
+      tabModels: "modelsSection",
+      tabMessages: "messagesSection",
+    };
+    Object.keys(tabs).forEach(id => {
+      document.getElementById(id).addEventListener("click", () => {
+        document.querySelectorAll(".admin-card").forEach(sec => sec.classList.add("hidden"));
+        document.getElementById(tabs[id]).classList.remove("hidden");
+        document.querySelectorAll(".sidebar a").forEach(a => a.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+      });
+    });
+
+    // Load bookings
+    const data = JSON.parse(localStorage.getItem("bikehub_bookings_v1") || "[]");
+    const bookingBody = document.querySelector("#bookingsTable tbody");
+    const totalBookings = document.getElementById("totalBookings");
+    if (data.length === 0) {
+      bookingBody.innerHTML = "<tr><td colspan='7'>No bookings yet.</td></tr>";
+    } else {
+      bookingBody.innerHTML = data.map((b, i) => `
+        <tr>
+          <td>${i + 1}</td>
+          <td>${b.name}</td>
+          <td>${b.bike}</td>
+          <td>${b.email}</td>
+          <td>${b.phone}</td>
+          <td>${b.date}</td>
+          <td>${b.message || "-"}</td>
+        </tr>
+      `).join("");
+      totalBookings.textContent = data.length;
+    }
+  </script>
+</body>
+</html>

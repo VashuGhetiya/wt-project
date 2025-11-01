@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BikeHub — Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">BikeHub</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="models.html" class="nav-link">Bike Models</a>
+      <a href="gallery.html" class="nav-link active">Gallery</a>
+      <a href="care.html" class="nav-link">Bike Care</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="admin-login.html" class="nav-link admin">Admin Panel</a>
+    </nav>
+    <button id="darkToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+  </header>
+
+  <main class="container">
+    <h2>Gallery</h2>
+    <p class="muted">Click an image to enlarge.</p>
+    <div id="galleryGrid" class="gallery-grid"></div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden"><div class="lightbox-inner">
+      <button id="lbClose" class="modal-close">×</button>
+      <img id="lbImage" src="" alt="">
+      <p id="lbCaption" class="muted"></p>
+    </div></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

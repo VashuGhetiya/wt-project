@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BikeHub — Bike Models</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">BikeHub</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="models.html" class="nav-link active">Bike Models</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="care.html" class="nav-link">Bike Care</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="admin-login.html" class="nav-link admin">Admin Panel</a>
+    </nav>
+    <button id="darkToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+  </header>
+
+  <main class="container">
+    <section class="search-filter">
+      <input id="searchInput" placeholder="Search models, e.g. Classic" />
+      <select id="brandFilter">
+        <option value="all">All brands</option>
+        <option>Royal Enfield</option>
+        <option>Yamaha</option>
+        <option>Honda</option>
+      </select>
+      <select id="sortSelect">
+        <option value="popular">Sort: Popular</option>
+        <option value="price-asc">Price ↑</option>
+        <option value="price-desc">Price ↓</option>
+      </select>
+      <button id="clearFilters" class="btn ghost">Clear</button>
+      <div class="spacer"></div>
+      <button id="viewWishlist" class="btn">Wishlist (<span id="wishCount">0</span>)</button>
+      <button id="viewCompare" class="btn">Compare (<span id="compareCount">0</span>)</button>
+    </section>
+
+    <section id="modelsList" class="models-grid"></section>
+
+    <!-- Wishlist & Compare Modals -->
+    <div id="wishlistModal" class="modal hidden" role="dialog"><div class="modal-content">
+      <button class="modal-close" data-close>×</button><h3>Wishlist</h3><div id="wishlistArea"></div>
+    </div></div>
+
+    <div id="compareModal" class="modal hidden" role="dialog"><div class="modal-content">
+      <button class="modal-close" data-close>×</button><h3>Compare</h3><div id="compareArea" class="compare-area"></div>
+    </div></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

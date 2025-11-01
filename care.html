@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BikeHub — Bike Care</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">BikeHub</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="models.html" class="nav-link">Bike Models</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="care.html" class="nav-link active">Bike Care</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="admin-login.html" class="nav-link admin">Admin Panel</a>
+    </nav>
+    <button id="darkToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-full care-hero">
+    <div class="hero-overlay">
+      <div class="hero-inner">
+        <h1>Bike Care & Maintenance</h1>
+        <p>Keep your bike performing like new with these essential care and maintenance tips.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bike Care Tips -->
+  <main class="container care-container">
+    <h2 class="section-title">Essential Bike Care Tips</h2>
+    <div class="care-grid">
+
+      <div class="care-card">
+        <span class="material-symbols-outlined icon">oil_barrel</span>
+        <h3>Regular Oil Change</h3>
+        <p>Change engine oil as per the manufacturer’s schedule to ensure long-term performance and smooth running.</p>
+      </div>
+
+      <div class="care-card">
+        <span class="material-symbols-outlined icon">two_wheeler</span>
+        <h3>Tire Check</h3>
+        <p>Inspect tire pressure and tread regularly. Properly inflated tires improve mileage and safety.</p>
+      </div>
+
+      <div class="care-card">
+        <span class="material-symbols-outlined icon">settings</span>
+        <h3>Chain Maintenance</h3>
+        <p>Clean and lubricate your chain every 500–800 km to prevent rust and ensure a smooth ride.</p>
+      </div>
+
+      <div class="care-card">
+        <span class="material-symbols-outlined icon">battery_charging_full</span>
+        <h3>Battery Care</h3>
+        <p>Keep terminals clean and charge your battery if the bike is unused for long periods.</p>
+      </div>
+
+      <div class="care-card">
+        <span class="material-symbols-outlined">brake_alert</span>
+
+        <h3>Brake Inspection</h3>
+        <p>Regularly check brake pads and fluids. Good braking ensures safe and confident riding.</p>
+      </div>
+
+      <div class="care-card">
+        <span class="material-symbols-outlined icon">wash</span>
+        <h3>Bike Cleaning</h3>
+        <p>Wash your bike frequently to remove dirt and grime. Avoid spraying high-pressure water near the engine or wiring.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> BikeHub | Keep Riding, Keep Shining 🏍</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

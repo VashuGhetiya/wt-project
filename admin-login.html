@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | BikeHub</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background: url('https://images.pexels.com/photos/1200450/pexels-photo-1200450.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .login-box {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2rem;
+      width: 340px;
+      text-align: center;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-box h2 {
+      color: #fff;
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .login-box .btn {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent, #0b5cff);
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-box .btn:hover {
+      background: #0042e0;
+    }
+
+    .forgot-password {
+      display: block;
+      margin-top: 0.8rem;
+      color: #fff;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .error-msg {
+      color: #ff4444;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .login-footer {
+      color: #fff;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 1.2rem;
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .back-home:hover {
+      background: #fff;
+      color: #0b5cff;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>BikeHub Admin Login</h2>
+
+    <form id="adminLoginForm">
+      <input type="text" id="username" placeholder="Enter Username" required />
+      <input type="password" id="password" placeholder="Enter Password" required />
+      <button type="submit" class="btn">Login</button>
+      <a class="forgot-password" href="#">Forgot Password?</a>
+      <div class="error-msg" id="errorMsg">Invalid username or password!</div>
+    </form>
+
+    <a href="index.html" class="back-home">← Back to Home</a>
+
+    <div class="login-footer">
+      © 2025 BikeHub | Authorized Access Only
+    </div>
+  </div>
+
+  <script>
+  const form = document.getElementById("adminLoginForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    
+    // Simply allow login for any entered credentials
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    if (user && pass) {
+      localStorage.setItem("bikehub_admin_loggedin", "true");
+      window.location.href = "admin-dashboard.html"; // redirect
+    } else {
+      alert("Please enter both username and password!");
+    }
+  });
+</script>
+
+</body>
+</html>

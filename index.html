@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BikeHub — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">BikeHub</a>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="models.html" class="nav-link">Bike Models</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="care.html" class="nav-link">Bike Care</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="admin-login.html" class="nav-link admin">Admin Panel</a>
+    </nav>
+    <button id="darkToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+  </header>
+
+  <main>
+    <section class="hero-full">
+      <div class="hero-overlay">
+        <div class="hero-inner">
+          <h1>Discover, Compare & Book Motorbikes</h1>
+          <p>BikeHub — a responsive showroom for exploring motorcycles, comparing specs, and booking test rides.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="models.html">Browse Models</a>
+            <a class="btn ghost" href="gallery.html">View Gallery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container features-home">
+      <div class="feature">
+        <h3>Browse Models</h3>
+        <p>Search, filter, compare and save your favourite bikes.</p>
+      </div>
+      <div class="feature">
+        <h3>Test Ride Booking</h3>
+        <p>Enquire or schedule a test ride using the booking form.</p>
+      </div>
+      <div class="feature">
+        <h3>Bike Care</h3>
+        <p>Maintenance tips and basic tutorials to keep your bike healthy.</p>
+      </div>
+      <div class="feature">
+        <h3>Admin Panel</h3>
+        <p>Manage bookings, events and the bike list (demo localStorage).</p>
+      </div>
+    </section>
+
+    <section class="container featured">
+      <h2>Featured Models</h2>
+      <div class="cardlist small">
+        <article class="card">
+          <img src="classic.jpg" alt="Classic 350">
+          <h4>Classic 350</h4>
+          <p class="muted">₹1,94,000*</p>
+        </article>
+        <article class="card">
+          <img src="himaliyan.jpg" alt="Himalayan">
+          <h4>Himalayan</h4>
+          <p class="muted">₹2,15,000*</p>
+        </article>
+        <article class="card">
+          <img src="meteor.jpg" alt="Meteor 350">
+          <h4>Meteor 350</h4>
+          <p class="muted">₹1,90,000*</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> BikeHub • Demo project — images from Royal Enfield.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
